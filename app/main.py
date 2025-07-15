@@ -52,6 +52,10 @@ metadata = {
     "prediction_time": datetime.now().isoformat()
 }
 
+@app.get("/")
+async def root():
+    return "Hello Welcome to Neuroinsight API"
+
 @app.post("/api/v1/predict")
 async def predict(file: UploadFile = File(...)):
     contents = await file.read()
